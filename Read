@@ -1,0 +1,24 @@
+import java.io.*;
+import java.util.Scanner;
+
+public class read {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println(" Input csv file name");
+        String filename = input.nextLine();
+        System.out.println("input string");
+        String searchString = input.nextLine();
+        input.close();
+        String path = "./File/" + filename + ".csv";
+        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+            String s;
+            while ((s = br.readLine()) != null) {
+                if (s.contains(searchString))
+                    System.out.println(s);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+}
