@@ -1,0 +1,26 @@
+import java.io.*;
+import java.util.Scanner;
+
+public class write {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int i =1;
+        while(true){
+            System.out.print("Input Name : ");
+            String name = input.nextLine();
+            if(name.equals("Q"))
+                break;
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter ("./File/Text1.txt",true))){
+                bw.write("Name[" + i + "] : " + name + "\n");
+                i++;
+            } catch (Exception e) {
+               e.printStackTrace();
+            }
+        
+
+        }
+    input.close();
+            
+        }
+}
+
